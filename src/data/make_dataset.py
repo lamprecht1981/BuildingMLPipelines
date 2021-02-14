@@ -14,11 +14,8 @@ import urllib3
 # Initial dataset source
 DATASET_URL = "http://bit.ly/building-ml-pipelines-dataset"
 
-# Initial local dataset location
-LOCAL_FILE_NAME = "../in/consumer_complaints_with_narrative.csv"
 
-
-def download_dataset(url=DATASET_URL):
+def download_dataset(local_file_name, url=DATASET_URL):
     """download_dataset downloads the remote dataset to a local path
 
     Keyword Arguments:
@@ -34,7 +31,7 @@ def download_dataset(url=DATASET_URL):
 
     c = urllib3.PoolManager()
     with c.request("GET", url, preload_content=False) as res, open(
-        LOCAL_FILE_NAME, "wb"
+        local_file_name, "wb"
     ) as out_file:
         shutil.copyfileobj(res, out_file)
 
