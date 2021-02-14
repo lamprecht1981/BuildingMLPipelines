@@ -138,5 +138,6 @@ dmypy.json
 
 # MetadataStore
 tfx/
-data/
+data/raw/*/*/*
+data/processed/*
 report/airflow/logs/
